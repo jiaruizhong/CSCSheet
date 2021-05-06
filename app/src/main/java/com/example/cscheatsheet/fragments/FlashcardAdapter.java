@@ -15,11 +15,7 @@ import com.example.cscheatsheet.fragments.flashcards.Flashcard;
 
 import java.util.List;
 
-/**
- * Time:2021/4/21
- * Author:Admin
- * Description:Adapter
- */
+
 public class FlashcardAdapter extends RecyclerView.Adapter<FlashcardAdapter.ViewHolder> {
     private ResultInterface resultInterface;
     private List<Flashcard> flashcards;
