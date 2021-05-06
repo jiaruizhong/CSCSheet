@@ -1,4 +1,4 @@
-package com.example.cscheatsheet.fragments.carhistory;
+package com.example.cscheatsheet.fragments;
 
 import android.view.LayoutInflater;
 import android.view.View;
