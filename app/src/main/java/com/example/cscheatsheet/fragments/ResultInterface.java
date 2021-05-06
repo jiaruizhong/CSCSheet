@@ -1,4 +1,4 @@
-package com.example.cscheatsheet.fragments.carhistory;
+package com.example.cscheatsheet.fragments;
 
 
 import com.example.cscheatsheet.fragments.flashcards.Flashcard;
