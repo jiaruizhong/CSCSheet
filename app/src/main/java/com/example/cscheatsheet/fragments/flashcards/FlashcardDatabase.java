@@ -5,11 +5,21 @@ import android.content.Context;
 import java.util.List;
 
 import androidx.room.Room;
+import androidx.viewpager.widget.PagerAdapter;
+
+import com.example.cscheatsheet.ParseApplication;
 
 public class FlashcardDatabase {
     private final AppDatabase db;
 
-    FlashcardDatabase(Context context) {
+    //change provide single
+    private static class FlashcardDatabaseHolder {
+        private final static FlashcardDatabase instance = new FlashcardDatabase(ParseApplication.getInstances());
+    }
+    public static FlashcardDatabase getInstance() {
+        return FlashcardDatabaseHolder.instance;
+    }
+    private FlashcardDatabase(Context context) {
         db = Room.databaseBuilder(context.getApplicationContext(),
                 AppDatabase.class, "flashcard-database")
                 .allowMainThreadQueries()
@@ -19,6 +29,10 @@ public class FlashcardDatabase {
 
     public List<Flashcard> getAllCards() {
         return db.flashcardDao().getAll();
+    }
+    public Flashcard getfromId(String uuid){
+        Flashcard flashcard = db.flashcardDao().querybyuuid(uuid);
+        return flashcard;
     }
 
     public void insertCard(Flashcard flashcard) {
@@ -37,4 +51,6 @@ public class FlashcardDatabase {
     public void updateCard(Flashcard flashcard) {
         db.flashcardDao().update(flashcard);
     }
+
+
 }
